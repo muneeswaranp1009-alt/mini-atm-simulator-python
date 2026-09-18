@@ -1,0 +1,53 @@
+Acc_balance = 500
+
+def add_amount(amount):
+    global Acc_balance
+    if amount <= 0:
+        print("Account Balance is Zero!")
+    else:
+        Acc_balance += amount
+        print(f"Deposit successfully {amount:.2f}")
+        print(f"Account Balane is {Acc_balance:.2f}")
+        
+def show_balance(amount):
+    print(f"Your account balance is {Acc_balance:.2f}")
+
+def withdraw(amount):
+    global Acc_balance
+    if Acc_balance < amount :
+        print("Insufficient Balance!")
+    elif amount < 0:
+        print("Withdraw Amount Must be Positive")
+    else:
+        Acc_balance -= amount
+        print(f"Withdraw Amount is {amount:.2f}")
+        print(f"Account Balance is {Acc_balance:.2f}")
+        
+def show_menu():
+    print("1.Add Amount")
+    print("2.Withdraw")
+    print("3.View Balance")
+    print("4.Exit")
+    
+while True:
+    print("\n-----------Mini Atm Machine-----------------")
+    print("\n")
+    password = input("Enter Your Account Password:")
+    if password == "2210":
+        show_menu()
+        choice = input("Enter Your Choice Number(1 - 4):")
+        if choice == "1":
+            amount = int(input("Enter The amount to Deposit:"))
+            add_amount(amount)
+        elif choice == "2":
+            amount = int(input("Enter The Amount to Withdraw:"))
+            withdraw(amount)
+        elif choice == "3":
+            show_balance(amount)
+        elif choice == "4":
+            print("\nThank's for using Mini Atm!")  
+            break
+        else:
+            print("Choose Menu by 1 to 4 Only!")
+    else:
+        print("Wrong Password, Please Enter correct Password!")
